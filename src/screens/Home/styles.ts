@@ -15,4 +15,32 @@ export const styles = StyleSheet.create({
   eventDate: {
     color: '#aaaaaa',
   },
+  form: {
+    width: '100%',
+    flexDirection: 'row',
+    marginTop: 36,
+    marginBottom: 42,
+  },
+  input: {
+    flex: 1,
+    height: 56,
+    backgroundColor: '#1F1E25',
+    borderRadius: 5,
+    color: '#fff',
+    padding: 16,
+    fontSize: 16,
+    marginRight: 16,
+  },
+  button: {
+    width: 56,
+    height: 56,
+    borderRadius: 5,
+    backgroundColor: '#31cf67',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 24,
+  },
 });
