@@ -1,4 +1,5 @@
 import {
+  Alert,
   FlatList,
   Text,
   TextInput,
@@ -23,11 +24,24 @@ export function Home() {
   ];
 
   const handleParticipantAdd = () => {
+    if (participants.includes('Jack')) {
+      Alert.alert('Participante já adicionado', 'Jack já está na lista');
+      return;
+    }
     console.log('Adicionar participante');
   };
 
   const handleParticipantRemove = (name: string) => {
-    console.log(`Remover participante: ${name}`);
+    Alert.alert('Remover participante', `Deseja remover ${name} da lista?`, [
+      {
+        text: 'Não',
+        style: 'cancel',
+      },
+      {
+        text: 'Sim',
+        onPress: () => Alert.alert('Deletado'),
+      },
+    ]);
   };
 
   return (
