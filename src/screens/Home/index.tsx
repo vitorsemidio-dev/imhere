@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Alert,
   FlatList,
@@ -10,18 +11,12 @@ import { Participant } from '../../components/Participant';
 import { styles } from './styles';
 
 export function Home() {
-  const participants = [
+  const [participants, setParticipants] = useState<string[]>([
     'Rodrigo',
     'Vini',
     'Diego',
     'Rafael',
-    'Jack',
-    'Isa',
-    'Mayk',
-    'João',
-    'Jane',
-    'John',
-  ];
+  ]);
 
   const handleParticipantAdd = () => {
     if (participants.includes('Jack')) {
@@ -29,6 +24,7 @@ export function Home() {
       return;
     }
     console.log('Adicionar participante');
+    setParticipants([...participants, 'Jack']);
   };
 
   const handleParticipantRemove = (name: string) => {
@@ -39,7 +35,10 @@ export function Home() {
       },
       {
         text: 'Sim',
-        onPress: () => Alert.alert('Deletado'),
+        onPress: () => {
+          setParticipants(participants.filter((item) => item !== name));
+          Alert.alert('Deletado');
+        },
       },
     ]);
   };
